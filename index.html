@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+    <script>
+    function pequisar(cep){
+        const link = 'https://viacep.com.br/ws/' + cep + '/json/?callback=preencherEndereco'
+        var script = document.createElement("script")
+        script.src = link
+        document.body;appendChild(script)
+    }
+    function preencherEndereco(conteudo){
+        //verificar se nao veio errado na consulta
+        document.getElementById("rua").value = conteudo.logradouro
+        //bairro
+        document.getElementById("cidade").value = conteudo.localidade
+        //uf
+    }
+</script>
 <body>
     <main>
         <h1>Cadastro de Clientes</h1>
